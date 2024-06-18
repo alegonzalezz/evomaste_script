@@ -1,6 +1,5 @@
 name: 'Migrated Script'
 description: 'A script that sets random configurations and runs evomaster'
-description: 'A script that sets random configurations and runs evomaster'
 outputs:
   feedbackDirectedSampling:
     description: 'Random feedbackDirectedSampling configuration'
