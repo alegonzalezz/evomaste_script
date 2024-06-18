@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
                       
-      ##- name: permisos evo master
-      ##  run: chmod +rx evomaster.jar
+      - name: permisos evo master
+        run: chmod +rx evomaster.jar
      
       - name: Obtener una configuración aleatoria
         id: obtener-configuracion
