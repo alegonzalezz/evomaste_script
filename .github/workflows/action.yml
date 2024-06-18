@@ -3,8 +3,7 @@ name: migrated script
 jobs:
   build-feature:
     runs-on: ubuntu-latest
-    steps:
-                      
+    steps:                 
       - name: permisos evo master
         run: chmod +rx evomaster.jar
      
@@ -30,8 +29,8 @@ jobs:
           CONFIGURACION=$(shuf -n 1 .focusedSearchActivationTime)
           echo "Configuración seleccionada: $CONFIGURACION"
           echo "::set-output name=focusedSearchActivationTime::$CONFIGURACION"
+
       - name: Run evomaster
-        if: ${{ success() }}
         run: |
           echo "feedbackDirectedSampling ${{ steps.obtener-configuracion.outputs.feedbackDirectedSampling }}"
           echo "probOfApplySQLActionToCreateResources ${{ steps.obtener-configuracion.outputs.probOfApplySQLActionToCreateResources }}"
