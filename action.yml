@@ -1,16 +1,5 @@
 name: 'Migrated Script'
 description: 'A script that sets random configurations and runs evomaster'
-outputs:
-  feedbackDirectedSampling:
-    description: 'Random feedbackDirectedSampling configuration'
-  probOfApplySQLActionToCreateResources:
-    description: 'Random probOfApplySQLActionToCreateResources configuration'
-  probOfRandomSampling:
-    description: 'Random probOfRandomSampling configuration'
-  baseTaintAnalysisProbability:
-    description: 'Random baseTaintAnalysisProbability configuration'
-  focusedSearchActivationTime:
-    description: 'Random focusedSearchActivationTime configuration'
 runs:
   using: 'composite'
   steps:
