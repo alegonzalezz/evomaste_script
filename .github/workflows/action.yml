@@ -1,6 +1,5 @@
 name: 'Migrated Script'
 description: 'A script that sets random configurations and runs evomaster'
-description: 'A script that sets random configurations and runs evomaster'
 outputs:
   feedbackDirectedSampling:
     description: 'Random feedbackDirectedSampling configuration'
@@ -16,10 +15,12 @@ runs:
   using: 'composite'
   steps:
     - name: Set permissions for evomaster.jar
+      shell: bash
       run: chmod +rx evomaster.jar
     
     - name: Obtener una configuración aleatoria
       id: obtener-configuracion
+      shell: bash
       run: |
         CONFIGURACION=$(shuf -n 1 .feedbackDirectedSampling)
         echo "Configuración seleccionada: $CONFIGURACION"
@@ -42,6 +43,7 @@ runs:
         echo "::set-output name=focusedSearchActivationTime::$CONFIGURACION"
 
     - name: Run evomaster
+      shell: bash
       run: |
         echo "feedbackDirectedSampling ${{ steps.obtener-configuracion.outputs.feedbackDirectedSampling }}"
         echo "probOfApplySQLActionToCreateResources ${{ steps.obtener-configuracion.outputs.probOfApplySQLActionToCreateResources }}"
