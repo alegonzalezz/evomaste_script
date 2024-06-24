@@ -1,5 +1,6 @@
 name: 'Migrated Script'
 description: 'A script that sets random configurations and runs evomaster'
+outputs:
   feedbackDirectedSampling:
     description: 'Random feedbackDirectedSampling configuration'
   probOfApplySQLActionToCreateResources:
@@ -40,15 +41,6 @@ runs:
         CONFIGURACION=$(shuf -n 1 .focusedSearchActivationTime)
         echo "Configuración seleccionada: $CONFIGURACION"
         echo "::set-output name=focusedSearchActivationTime::$CONFIGURACION"
-
-    - name: show variables
-      shell: bash
-      run: |
-        echo "feedbackDirectedSampling ${{ steps.obtener-configuracion.outputs.feedbackDirectedSampling }}"
-        echo "probOfApplySQLActionToCreateResources ${{ steps.obtener-configuracion.outputs.probOfApplySQLActionToCreateResources }}"
-        echo "probOfRandomSampling ${{ steps.obtener-configuracion.outputs.probOfRandomSampling }}"
-        echo "baseTaintAnalysisProbability ${{ steps.obtener-configuracion.outputs.baseTaintAnalysisProbability }}"
-        echo "focusedSearchActivationTime ${{ steps.obtener-configuracion.outputs.focusedSearchActivationTime }}"
       
     - name: Run evomaster
       shell: bash
