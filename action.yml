@@ -25,23 +25,23 @@ runs:
       id: obtener-configuracion
       shell: bash
       run: |
-        CONFIGURACION=$(shuf -n 1 .feedbackDirectedSampling)
+        CONFIGURACION=$(shuf -n 1 ${{ github.action_path }}/.feedbackDirectedSampling)
         echo "Configuración seleccionada: $CONFIGURACION"
         echo "::set-output name=feedbackDirectedSampling::$CONFIGURACION"
 
-        CONFIGURACION=$(shuf -n 1 .probOfApplySQLActionToCreateResources)
+        CONFIGURACION=$(shuf -n 1 ${{ github.action_path }}/.probOfApplySQLActionToCreateResources)
         echo "Configuración seleccionada: $CONFIGURACION"
         echo "::set-output name=probOfApplySQLActionToCreateResources::$CONFIGURACION"
         
-        CONFIGURACION=$(shuf -n 1 .probOfRandomSampling)
+        CONFIGURACION=$(shuf -n 1 ${{ github.action_path }}/.probOfRandomSampling)
         echo "Configuración seleccionada: $CONFIGURACION"
         echo "::set-output name=probOfRandomSampling::$CONFIGURACION"
         
-        CONFIGURACION=$(shuf -n 1 .baseTaintAnalysisProbability)
+        CONFIGURACION=$(shuf -n 1 ${{ github.action_path }}/.baseTaintAnalysisProbability)
         echo "Configuración seleccionada: $CONFIGURACION"
         echo "::set-output name=baseTaintAnalysisProbability::$CONFIGURACION"
 
-        CONFIGURACION=$(shuf -n 1 .focusedSearchActivationTime)
+        CONFIGURACION=$(shuf -n 1 ${{ github.action_path }}/.focusedSearchActivationTime)
         echo "Configuración seleccionada: $CONFIGURACION"
         echo "::set-output name=focusedSearchActivationTime::$CONFIGURACION"
       
