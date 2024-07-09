@@ -14,9 +14,12 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
     - name: Set permissions for evomaster.jar
       shell: bash
-      run: chmod +rx evomaster.jar
+      run: chmod +rx ${{ github.action_path }}/evomaster.jar
     
     - name: Obtener una configuración aleatoria
       id: obtener-configuracion
