@@ -53,6 +53,7 @@ runs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Generate Markdown Table
+      shell: bash
       run: |
         echo "| feedbackDirectedSampling  | probOfApplySQLActionToCreateResources 2 | probOfRandomSampling | baseTaintAnalysisProbability | focusedSearchActivationTime |" > report.md
         echo "|----------|----------|----------|----------|----------|" >> report.md
