@@ -54,6 +54,7 @@ runs:
       uses: actions/checkout@v2
 
     - name: Install jq
+      shell: bash
       run: sudo apt-get install jq
 
     - name: Generate Markdown Table
