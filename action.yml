@@ -52,14 +52,17 @@ runs:
 
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Install jq
+      run: sudo apt-get install jq
+
     - name: Generate Markdown Table
       shell: bash
       run: |
-        echo "| feedbackDirectedSampling  | probOfApplySQLActionToCreateResources 2 | probOfRandomSampling | baseTaintAnalysisProbability | focusedSearchActivationTime |" > report.md
-        echo "|----------|----------|----------|----------|----------|" >> report.md
-        echo "| ${{ steps.obtener-configuracion.outputs.feedbackDirectedSampling }}   | ${{ steps.obtener-configuracion.outputs.probOfApplySQLActionToCreateResources }}  | ${{ steps.obtener-configuracion.outputs.probOfRandomSampling }}  | ${{ steps.obtener-configuracion.outputs.baseTaintAnalysisProbability }} | ${{ steps.obtener-configuracion.outputs.focusedSearchActivationTime }} | " >> report.md
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: markdown-report
-        path: report.md
+        echo "| Variable  | Value|" 
+        echo "|----------|----------|" 
+        echo "| feedbackDirectedSampling | ${{ steps.obtener-configuracion.outputs.feedbackDirectedSampling }} |"
+        echo "| probOfApplySQLActionToCreateResources | ${{ steps.obtener-configuracion.outputs.probOfApplySQLActionToCreateResources }} |"
+        echo "| probOfRandomSampling | ${{ steps.obtener-configuracion.outputs.probOfRandomSampling }} |"
+        echo "| baseTaintAnalysisProbability | ${{ steps.obtener-configuracion.outputs.baseTaintAnalysisProbability }} |"
+        echo "| focusedSearchActivationTime | ${{ steps.obtener-configuracion.outputs.focusedSearchActivationTime }} |"
