@@ -56,7 +56,7 @@ runs:
 
     - name: ls
       shell: bash
-      run: ls
+      run: ls -la
 
     - name: Install jq
       shell: bash
