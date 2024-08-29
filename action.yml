@@ -53,6 +53,11 @@ runs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+
+    - name: ls
+      shell: bash
+      run: ls
+
     - name: Install jq
       shell: bash
       run: sudo apt-get install jq
